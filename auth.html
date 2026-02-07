@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Interview Master</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            height: 100vh;
+            overflow: hidden;
+            background: radial-gradient(circle at center, #0a192f 0%, #020617 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        .auth-wrapper {
+            width: 450px;
+            padding: 2rem;
+            transform-style: preserve-3d;
+        }
+
+        .auth-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 3rem;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+            transform-style: preserve-3d;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .auth-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            transform: translateZ(50px);
+        }
+
+        .input-box {
+            position: relative;
+            margin-bottom: 1.5rem;
+            transform: translateZ(30px);
+        }
+
+        .input-box input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            color: #fff;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .input-box input:focus {
+            border-color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+        }
+
+        .btn-auth {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 12px;
+            background: var(--gradient-1);
+            color: #000;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            transform: translateZ(40px);
+            margin-top: 1rem;
+        }
+
+        .btn-auth:hover {
+            transform: translateZ(60px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 242, 254, 0.3);
+        }
+
+        .switch-text {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #888;
+            font-size: 0.9rem;
+            transform: translateZ(20px);
+        }
+
+        .switch-text span {
+            color: var(--accent-color);
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Floating background circles */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.5;
+            animation: float 10s infinite alternate linear;
+        }
+
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent-color);
+            top: -100px;
+            right: -100px;
+        }
+
+        .circle-2 {
+            width: 400px;
+            height: 400px;
+            background: #9333ea;
+            bottom: -150px;
+            left: -150px;
+            animation-delay: -5s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        .hidden-form {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+
+    <div class="auth-wrapper" id="authWrapper">
+        <!-- Login Form -->
+        <div class="auth-card" id="loginCard" data-tilt>
+            <h2 class="auth-title">Welcome <span class="gradient-text">Back</span></h2>
+            <form id="loginForm">
+                <div class="input-box">
+                    <input type="email" id="loginEmail" placeholder="Email Address" required>
+                </div>
+                <div class="input-box">
+                    <input type="password" id="loginPass" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn-auth">Sign In</button>
+            </form>
+            <p class="switch-text">Don't have an account? <span onclick="switchForm('signup')">Sign Up</span></p>
+        </div>
+
+        <!-- Signup Form -->
+        <div class="auth-card hidden-form" id="signupCard" data-tilt>
+            <h2 class="auth-title">Create <span class="gradient-text">Account</span></h2>
+            <form id="signupForm">
+                <div class="input-box">
+                    <input type="text" id="signupName" placeholder="Full Name" required>
+                </div>
+                <div class="input-box">
+                    <input type="email" id="signupEmail" placeholder="Email Address" required>
+                </div>
+                <div class="input-box">
+                    <input type="password" id="signupPass" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn-auth">Get Started</button>
+            </form>
+            <p class="switch-text">Already have an account? <span onclick="switchForm('login')">Sign In</span></p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        function switchForm(type) {
+            const loginCard = document.getElementById('loginCard');
+            const signupCard = document.getElementById('signupCard');
+
+            if (type === 'signup') {
+                gsap.to(loginCard, {
+                    opacity: 0, x: -50, duration: 0.4, onComplete: () => {
+                        loginCard.style.display = 'none';
+                        signupCard.style.display = 'block';
+                        gsap.fromTo(signupCard, { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.4 });
+                    }
+                });
+            } else {
+                gsap.to(signupCard, {
+                    opacity: 0, x: 50, duration: 0.4, onComplete: () => {
+                        signupCard.style.display = 'none';
+                        loginCard.style.display = 'block';
+                        gsap.fromTo(loginCard, { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.4 });
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

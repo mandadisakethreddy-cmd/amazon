@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder | InterviewMaster</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="logo">INTERVIEW<span class="highlight">MASTER</span></div>
+        <div class="nav-actions">
+            <a href="index.html" class="back-link">← Back to Practice</a>
+            <button class="btn-primary" onclick="exportPDF()" style="margin-left: 2rem;">Download PDF</button>
+        </div>
+    </nav>
+
+    <div class="builder-container">
+
+        <!-- Left Panel: Form -->
+        <div class="builder-form">
+            <h2>Edit <span class="highlight">Resume</span></h2>
+
+            <div class="form-section">
+                <h3>Personal Info</h3>
+                <input type="text" id="inputName" placeholder="Full Name">
+                <input type="text" id="inputRole" placeholder="Target Role (e.g. Software Engineer)">
+                <input type="email" id="inputEmail" placeholder="Email">
+                <input type="tel" id="inputPhone" placeholder="Phone">
+                <input type="text" id="inputLinkedin" placeholder="LinkedIn URL">
+            </div>
+
+            <div class="form-section">
+                <h3>Summary</h3>
+                <textarea id="inputSummary" rows="4" placeholder="Professional Summary..."></textarea>
+            </div>
+
+            <div class="form-section">
+                <h3>Experience</h3>
+                <textarea id="inputExp" rows="6"
+                    placeholder="• Job Title | Company | Dates&#10;• Key achievement with numbers..."></textarea>
+            </div>
+
+            <div class="form-section">
+                <h3>Skills</h3>
+                <input type="text" id="inputSkills" placeholder="Java, Python, React, AWS...">
+            </div>
+
+            <div class="form-section">
+                <h3>Education</h3>
+                <textarea id="inputEdu" rows="3" placeholder="Degree | University | Year"></textarea>
+            </div>
+        </div>
+
+        <!-- Right Panel: Live Preview -->
+        <div class="builder-preview-wrapper">
+            <div class="live-score">
+                <span>Live ATS Score: </span>
+                <span id="liveScoreVal" class="highlight">0</span>
+            </div>
+
+            <div class="resume-paper" id="resumePreview">
+                <header class="resume-header">
+                    <h1 id="outName">Your Name</h1>
+                    <p id="outRole">Target Role</p>
+                    <div class="contact-info">
+                        <span id="outEmail">email@example.com</span> |
+                        <span id="outPhone">+1 123 456 7890</span> |
+                        <span id="outLinkedin">linkedin.com/in/you</span>
+                    </div>
+                </header>
+
+                <section class="resume-body">
+                    <div class="section-block">
+                        <h4>SUMMARY</h4>
+                        <hr>
+                        <p id="outSummary">Professional summary goes here...</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h4>EXPERIENCE</h4>
+                        <hr>
+                        <div id="outExp" class="whitespace-pre">Experience details...</div>
+                    </div>
+
+                    <div class="section-block">
+                        <h4>SKILLS</h4>
+                        <hr>
+                        <p id="outSkills">List of skills...</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h4>EDUCATION</h4>
+                        <hr>
+                        <div id="outEdu" class="whitespace-pre">Education details...</div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/builder.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        // Smooth 3D Page Transition
+        document.querySelectorAll('.back-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = link.getAttribute('href');
+                gsap.to('body', {
+                    opacity: 0,
+                    rotateX: -10,
+                    z: -500,
+                    duration: 0.6,
+                    ease: "power2.in",
+                    onComplete: () => window.location.href = href
+                });
+            });
+        });
+
+        // Initial Entrance
+        window.addEventListener('load', () => {
+            gsap.from('body', { opacity: 0, z: 200, duration: 1, ease: "power3.out" });
+        });
+    </script>
+</body>
+
+</html>

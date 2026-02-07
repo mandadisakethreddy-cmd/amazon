@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Your Interview | 3D Experience</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="js/auth.js"></script>
+    <script>checkAuth();</script>
+    <script src="js/chatbot.js"></script>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">INTERVIEW<span class="highlight">MASTER</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#rounds">Rounds</a></li>
+            <li><a href="#coding">Coding</a></li>
+            <li><a href="#curriculum">Curriculum</a></li>
+            <li><a href="assessment.html">Assessment</a></li>
+            <li><a href="resume-analyzer.html" style="color: var(--accent-color);">Resume Tools</a></li>
+            <li><a href="#" onclick="logout()" class="btn-contact"
+                    style="background: var(--fail-red); color: white;">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main 3D Banner Section -->
+    <section class="hero-section">
+
+        <!-- Hidden Content (Reveals after animation) -->
+        <div class="hidden-content">
+            <h1 class="hero-title">Unlock Your <br> <span class="gradient-text">Dream Job</span></h1>
+            <p class="hero-subtitle">Master every stage of the interview process with our comprehensive preparation
+                platform.</p>
+            <div class="cta-group">
+                <button class="btn-primary" id="btnHeroStart">Start Practicing</button>
+                <button class="btn-secondary" id="btnViewRoadmap">View Roadmap</button>
+            </div>
+
+            <div class="stats-row">
+                <div class="stat-item">
+                    <span class="stat-number">5K+</span>
+                    <span class="stat-label">Questions</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Companies</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">Success Rate</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3D Card Container -->
+        <div class="card-container">
+            <div class="card-wrapper">
+                <!-- Card 1: Screening -->
+                <div class="card card-screening">
+                    <div class="card-content">
+                        <div class="card-icon">📞</div>
+                        <h3>Screening</h3>
+                        <p>HR & Recruiter Call</p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Coding -->
+                <div class="card card-coding">
+                    <div class="card-content">
+                        <div class="card-icon">💻</div>
+                        <h3>Coding</h3>
+                        <p>DSA & Algorithms</p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Advanced Tech -->
+                <div class="card card-tech">
+                    <div class="card-content">
+                        <div class="card-icon">🚀</div>
+                        <h3>Adv. Tech</h3>
+                        <p>System Design & Architecture</p>
+                    </div>
+                </div>
+
+                <!-- Card 4: Behavioral -->
+                <div class="card card-behavioral">
+                    <div class="card-content">
+                        <div class="card-icon">🧠</div>
+                        <h3>Behavioral</h3>
+                        <p>Leadership Principles</p>
+                    </div>
+                </div>
+
+                <!-- Card 5: HR Round -->
+                <div class="card card-hr" id="cardHR" style="cursor: pointer">
+                    <div class="card-content">
+                        <div class="card-icon">🤝</div>
+                        <h3>HR Round</h3>
+                        <p>Offer Negotiation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SECTION 2: 3D Roadmap (The Journey) -->
+    <section class="roadmap-section" id="rounds">
+        <h2 class="section-title">Your <span class="highlight">Journey</span></h2>
+        <div class="roadmap-container">
+            <div class="roadmap-line"></div>
+
+            <div class="roadmap-item left">
+                <div class="roadmap-content" data-tilt>
+                    <h3>01. Application</h3>
+                    <p>Optimize your resume with our AI tools.</p>
+                </div>
+                <div class="roadmap-dot"></div>
+            </div>
+
+            <div class="roadmap-item right">
+                <div class="roadmap-dot"></div>
+                <div class="roadmap-content" data-tilt>
+                    <h3>02. Screening</h3>
+                    <p>Ace the initial HR phone call.</p>
+                </div>
+            </div>
+
+            <div class="roadmap-item left">
+                <div class="roadmap-content" data-tilt>
+                    <h3>03. Technical</h3>
+                    <p>Master DSA & System Design.</p>
+                </div>
+                <div class="roadmap-dot"></div>
+            </div>
+
+            <div class="roadmap-item right">
+                <div class="roadmap-dot"></div>
+                <div class="roadmap-content" data-tilt>
+                    <h3>04. Offer</h3>
+                    <p>Negotiate like a pro.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Features (3D Tilt Cards) -->
+    <section class="features-section" id="about">
+        <h2 class="section-title">Why <span class="highlight">Choose Us</span></h2>
+        <div class="features-grid">
+            <div class="feature-card" data-tilt>
+                <div class="icon">🤖</div>
+                <h3>AI Mock Interviews</h3>
+                <p>Practice with our advanced AI that adapts to your responses.</p>
+            </div>
+            <div class="feature-card" data-tilt>
+                <div class="icon">👥</div>
+                <h3>Peer Matching</h3>
+                <p>Connect with other candidates for real-time practice.</p>
+            </div>
+            <div class="feature-card" data-tilt>
+                <div class="icon">📈</div>
+                <h3>Progress Tracking</h3>
+                <p>Visualize your improvement with detailed analytics.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Detailed Curriculum (3D Hover List) -->
+    <section class="curriculum-section" id="curriculum">
+        <h2 class="section-title">Comprehensive <span class="highlight">Curriculum</span></h2>
+        <div class="curriculum-container">
+            <div class="curriculum-item" data-tilt id="curr-dsa">
+                <div class="curr-number">01</div>
+                <div class="curr-content">
+                    <h3>Data Structures & Algorithms</h3>
+                    <p>Arrays, Linked Lists, Trees, Graphs, DP, Greeting Constraints.</p>
+                </div>
+                <div class="curr-arrow">➜</div>
+            </div>
+            <div class="curriculum-item" data-tilt id="curr-sysdesign">
+                <div class="curr-number">02</div>
+                <div class="curr-content">
+                    <h3>System Design</h3>
+                    <p>Scalability, Load Balancing, Database Sharding, Caching Strategies.</p>
+                </div>
+                <div class="curr-arrow">➜</div>
+            </div>
+            <div class="curriculum-item" data-tilt id="curr-behavioral">
+                <div class="curr-number">03</div>
+                <div class="curr-content">
+                    <h3>Behavioral Prep</h3>
+                    <p>STAR Method, Leadership Principles, Mock Interview Scenarios.</p>
+                </div>
+                <div class="curr-arrow">➜</div>
+            </div>
+            <div class="curriculum-item" data-tilt id="curr-company">
+                <div class="curr-number">04</div>
+                <div class="curr-content">
+                    <h3>Company Specifics</h3>
+                    <p>Targeted guides for Google, Amazon, Microsoft, Meta.</p>
+                </div>
+                <div class="curr-arrow">➜</div>
+            </div>
+            <div class="curriculum-item" data-tilt id="curr-mock">
+                <div class="curr-number">05</div>
+                <div class="curr-content">
+                    <h3>Mock Interviews</h3>
+                    <p>Peer-to-peer and AI-driven mock sessions with real-time feedback.</p>
+                </div>
+                <div class="curr-arrow">➜</div>
+            </div>
+            <div class="curriculum-item" data-tilt id="curr-resume">
+                <div class="curr-number">06</div>
+                <div class="curr-content">
+                    <h3>Resume Review</h3>
+                    <p>ATS optimization and expert feedback to get you shortlisted.</p>
+                </div>
+                <div class="curr-arrow">➜</div>
+            </div>
+            <div class="curriculum-item" data-tilt id="curr-neg">
+                <div class="curr-number">07</div>
+                <div class="curr-content">
+                    <h3>Negotiation</h3>
+                    <p>Strategies to maximize your compensation package.</p>
+                </div>
+                <div class="curr-arrow">➜</div>
+            </div>
+            <div class="curriculum-item" data-tilt id="curr-softskills">
+                <div class="curr-number">08</div>
+                <div class="curr-content">
+                    <h3>Soft Skills</h3>
+                    <p>Communication, teamwork, and culture fit mastery.</p>
+                </div>
+                <div class="curr-arrow">➜</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: Coding Playground -->
+    <section class="coding-playground" id="coding">
+        <h2 class="section-title">Practice <span class="highlight">LeetCode</span> Problems</h2>
+        <div class="playground-container">
+            <div class="problem-list">
+                <div class="problem-item active" data-id="two-sum">
+                    <h3>Two Sum</h3>
+                    <span class="difficulty easy">Easy</span>
+                </div>
+                <div class="problem-item" data-id="add-two-numbers">
+                    <h3>Add Two Numbers</h3>
+                    <span class="difficulty medium">Medium</span>
+                </div>
+                <div class="problem-item" data-id="max-subarray">
+                    <h3>Maximum Subarray</h3>
+                    <span class="difficulty medium">Medium</span>
+                </div>
+                <div class="problem-item" data-id="valid-parentheses">
+                    <h3>Valid Parentheses</h3>
+                    <span class="difficulty easy">Easy</span>
+                </div>
+            </div>
+            <div class="editor-area">
+                <div class="editor-header">
+                    <span class="language">JavaScript</span>
+                    <button id="runCode" class="btn-primary">Run Code</button>
+                </div>
+                <textarea id="codeEditor" spellcheck="false">// Write your code here...
+function solution(nums, target) {
+    
+}</textarea>
+                <div class="output-panel">
+                    <h4>Output:</h4>
+                    <pre id="codeOutput">Click Run Code to see results...</pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: Contact / Join Free -->
+    <section class="contact-section" id="contact">
+        <div class="contact-card" data-tilt>
+            <h2>Join the <span class="highlight">Community</span></h2>
+            <p>Get access to exclusive resources and mock interview sessions.</p>
+            <form class="contact-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn-primary">Get Access</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- SECTION 7: Testimonials -->
+    <section class="testimonials-section">
+        <h2 class="section-title">Success <span class="highlight">Stories</span></h2>
+        <div class="carousel-scene">
+            <div class="carousel">
+                <div class="carousel-item">
+                    <p>"Landed my dream job at Google! The system design rounds were spot on."</p>
+                    <span>- Sarah J.</span>
+                </div>
+                <div class="carousel-item">
+                    <p>"The best platform for behavioral prep. I finally cracked the Amazon interview."</p>
+                    <span>- Mike T.</span>
+                </div>
+                <div class="carousel-item">
+                    <p>"Detailed explanations and great community support. Highly recommended."</p>
+                    <span>- Priya R.</span>
+                </div>
+                <div class="carousel-item">
+                    <p>"Went from no offers to 3 offers in 2 months. The roadmap is a lifesaver."</p>
+                    <span>- Alex D.</span>
+                </div>
+                <div class="carousel-item">
+                    <p>"Mock interviews with peers helped me overcome my anxiety."</p>
+                    <span>- Chris P.</span>
+                </div>
+                <div class="carousel-item">
+                    <p>"Free access to such high quality content is unheard of. Thank you!"</p>
+                    <span>- Emily W.</span>
+                </div>
+                <div class="carousel-item">
+                    <p>"The best resource for negotiation tactics. I got a 20% bump!"</p>
+                    <span>- David K.</span>
+                </div>
+                <div class="carousel-item">
+                    <p>"Community is amazing. I found my study partner here."</p>
+                    <span>- Lisa M.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Detail Overlay -->
+    <div id="curriculumOverlay" class="curriculum-overlay">
+        <div class="overlay-content" data-tilt>
+            <button class="close-overlay">×</button>
+            <div id="overlayDetails">
+                <!-- Content injected via JS -->
+            </div>
+            <button class="btn-primary back-to-list">Back to Roadmap</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h2>INTERVIEW<span class="highlight">MASTER</span></h2>
+            <p>&copy; 2024 Interview Master. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://twitter.com/interviewmaster" target="_blank">Twitter</a>
+                <a href="https://linkedin.com/company/interviewmaster" target="_blank">LinkedIn</a>
+                <a href="https://instagram.com/interviewmaster" target="_blank">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Vanilla Tilt for easy 3D tilt effect -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

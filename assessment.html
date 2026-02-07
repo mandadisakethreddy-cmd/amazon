@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment | Interview Master</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="js/auth.js"></script>
+    <script>checkAuth();</script>
+    <script src="js/chatbot.js"></script>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">INTERVIEW<span class="highlight">MASTER</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#rounds">Rounds</a></li>
+            <li><a href="index.html#coding">Coding</a></li>
+            <li><a href="index.html#curriculum">Curriculum</a></li>
+            <li><a href="assessment.html" style="color: var(--accent-color);">Assessment</a></li>
+            <li><a href="resume-analyzer.html">Resume Tools</a></li>
+            <li><a href="#" onclick="logout()" class="btn-contact"
+                    style="background: var(--fail-red); color: white;">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="assessment-container">
+        <!-- Assessment Header -->
+        <div class="assessment-header" id="headerSection">
+            <h1 class="hero-title">Skill <span class="gradient-text">Assessment</span></h1>
+
+            <div class="progress-info">
+                <div class="progress-text" id="progressText">Question 1 of 6</div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Questions Form -->
+        <form id="assessmentForm" onsubmit="event.preventDefault(); submitAssessment();">
+
+            <!-- Question 1: Aptitude -->
+            <div class="question-step active" data-step="1">
+                <div class="section-card">
+                    <div class="section-badge">🧠 Phase 1: Aptitude</div>
+                    <p class="question-text">1. A train running at the speed of 60 km/hr crosses a pole in 9 seconds.
+                        What is the length of the train?</p>
+                    <div class="options-group">
+                        <label class="option-label"><input type="radio" name="q1" value="A"> <span>120
+                                metres</span></label>
+                        <label class="option-label"><input type="radio" name="q1" value="B"> <span>180
+                                metres</span></label>
+                        <label class="option-label"><input type="radio" name="q1" value="C"> <span>324
+                                metres</span></label>
+                        <label class="option-label"><input type="radio" name="q1" value="D"> <span>150
+                                metres</span></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 2: Aptitude -->
+            <div class="question-step" data-step="2">
+                <div class="section-card">
+                    <div class="section-badge">🧠 Phase 1: Aptitude</div>
+                    <p class="question-text">2. If A is the brother of B; B is the sister of C; and C is the father of
+                        D, how is D related to A?</p>
+                    <div class="options-group">
+                        <label class="option-label"><input type="radio" name="q2" value="A">
+                            <span>Brother</span></label>
+                        <label class="option-label"><input type="radio" name="q2" value="B"> <span>Sister</span></label>
+                        <label class="option-label"><input type="radio" name="q2" value="C"> <span>Nephew</span></label>
+                        <label class="option-label"><input type="radio" name="q2" value="D"> <span>Cannot be
+                                determined</span></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 3: DSA -->
+            <div class="question-step" data-step="3">
+                <div class="section-card">
+                    <div class="section-badge">💻 Phase 2: DSA</div>
+                    <p class="question-text">3. What is the time complexity of searching for an element in a balanced
+                        Binary Search Tree (BST)?</p>
+                    <div class="options-group">
+                        <label class="option-label"><input type="radio" name="q3" value="A"> <span>O(1)</span></label>
+                        <label class="option-label"><input type="radio" name="q3" value="B"> <span>O(n)</span></label>
+                        <label class="option-label"><input type="radio" name="q3" value="C"> <span>O(log
+                                n)</span></label>
+                        <label class="option-label"><input type="radio" name="q3" value="D"> <span>O(n log
+                                n)</span></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 4: DSA -->
+            <div class="question-step" data-step="4">
+                <div class="section-card">
+                    <div class="section-badge">💻 Phase 2: DSA</div>
+                    <p class="question-text">4. Which data structure is best suited for implementing a LIFO (Last In
+                        First Out) system?</p>
+                    <div class="options-group">
+                        <label class="option-label"><input type="radio" name="q4" value="A"> <span>Queue</span></label>
+                        <label class="option-label"><input type="radio" name="q4" value="B"> <span>Stack</span></label>
+                        <label class="option-label"><input type="radio" name="q4" value="C"> <span>Linked
+                                List</span></label>
+                        <label class="option-label"><input type="radio" name="q4" value="D"> <span>Array</span></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 5: Code -->
+            <div class="question-step" data-step="5">
+                <div class="section-card">
+                    <div class="section-badge">🚀 Phase 3: Code Writing</div>
+                    <p class="question-text">5. Write a function to reverse a string (in any language).</p>
+                    <textarea class="code-input" id="q5" placeholder="// Write your code here..."></textarea>
+                </div>
+            </div>
+
+            <!-- Question 6: Code -->
+            <div class="question-step" data-step="6">
+                <div class="section-card">
+                    <div class="section-badge">🚀 Phase 3: Code Writing</div>
+                    <p class="question-text">6. Write a function to check if a number is prime.</p>
+                    <textarea class="code-input" id="q6" placeholder="// Write your code here..."></textarea>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="nav-buttons">
+                <button type="button" class="btn-nav btn-prev hidden" id="prevBtn"
+                    onclick="changeStep(-1)">Back</button>
+                <button type="button" class="btn-nav btn-next" id="nextBtn" onclick="changeStep(1)">Next
+                    Question</button>
+                <button type="submit" class="btn-nav btn-submit display-none" id="submitBtn">Next Challenge</button>
+            </div>
+
+        </form>
+
+        <!-- Result Screen -->
+        <div id="resultScreen" class="result-screen hidden">
+            <div class="score-circle" id="scoreCircle">0/6</div>
+            <h2 class="result-title" id="resultTitle">Assessment Complete</h2>
+            <p class="result-message" id="resultMessage">Your results depend on your effort.</p>
+
+            <div id="actionButtons">
+                <!-- Buttons injected by JS -->
+            </div>
+
+            <!-- Learning Path (Only visible on Pass) -->
+            <div id="learningPath" class="hidden">
+                <h3 style="margin-top: 3rem; text-align: center; font-size: 2rem;">Recommended <span
+                        class="highlight">Learning Path</span></h3>
+                <div class="learning-resources">
+                    <div class="resource-card" data-tilt>
+                        <h3>1. Advanced Data Structures</h3>
+                        <p>Master Graphs, Tries, and Segment Trees to tackle hard problems.</p>
+                    </div>
+                    <div class="resource-card" data-tilt>
+                        <h3>2. System Design Architecture</h3>
+                        <p>Learn how to design scalable systems like Uber or Instagram.</p>
+                    </div>
+                    <div class="resource-card" data-tilt>
+                        <h3>3. Mock Interview Practice</h3>
+                        <p>Schedule a mock interview with an industry expert.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vanilla Tilt -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script>
+        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+            max: 15,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2,
+        });
+
+        // Step Logic
+        let currentStep = 1;
+        const totalSteps = 6;
+
+        function changeStep(direction) {
+            const nextStep = currentStep + direction;
+
+            // Validate range
+            if (nextStep < 1 || nextStep > totalSteps) return;
+
+            // Hide curren step
+            document.querySelector(`.question-step[data-step="${currentStep}"]`).classList.remove('active');
+
+            // Show next step
+            currentStep = nextStep;
+            document.querySelector(`.question-step[data-step="${currentStep}"]`).classList.add('active');
+
+            updateUI();
+        }
+
+        function updateUI() {
+            // Update Progress Bar
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progressBar').style.width = `${progress}%`;
+            document.getElementById('progressText').innerText = `Question ${currentStep} of ${totalSteps}`;
+
+            // Button Visibility
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const submitBtn = document.getElementById('submitBtn');
+
+            // Back Button
+            if (currentStep === 1) {
+                prevBtn.classList.add('hidden');
+            } else {
+                prevBtn.classList.remove('hidden');
+            }
+
+            // Next / Submit Button
+            if (currentStep === totalSteps) {
+                nextBtn.classList.add('display-none');
+                submitBtn.classList.remove('display-none');
+            } else {
+                nextBtn.classList.remove('display-none');
+                submitBtn.classList.add('display-none');
+            }
+        }
+
+        function submitAssessment() {
+            // 1. Calculate Score
+            let score = 0;
+            const form = document.getElementById('assessmentForm');
+            const formData = new FormData(form);
+
+            // Access inputs directly for code questions not in FormData if no name?
+            // Actually textarea values can be got by ID
+
+            // Key:
+            // Q1: D (150 metres)
+            // Q2: C (Choose correct manual answer, let's say C for Nephew)
+            // Q3: C (O(log n))
+            // Q4: B (Stack)
+
+            if (formData.get('q1') === 'D') score++;
+            if (formData.get('q2') === 'C') score++; // Assuming C is correct relation logic here
+            if (formData.get('q3') === 'C') score++;
+            if (formData.get('q4') === 'B') score++;
+
+            // Code Questions (Simple check for content > 10 chars)
+            const q5Val = document.getElementById('q5').value;
+            const q6Val = document.getElementById('q6').value;
+
+            if (q5Val.trim().length > 10) score++;
+            if (q6Val.trim().length > 10) score++;
+
+            // 2. Show Results
+            // Hide Form & Header
+            document.getElementById('assessmentForm').classList.add('hidden');
+            document.getElementById('headerSection').classList.add('hidden');
+
+            // Show Result Screen
+            const resultScreen = document.getElementById('resultScreen');
+            resultScreen.classList.remove('hidden');
+
+            const scoreCircle = document.getElementById('scoreCircle');
+            const resultTitle = document.getElementById('resultTitle');
+            const resultMessage = document.getElementById('resultMessage');
+            const actionButtons = document.getElementById('actionButtons');
+            const learningPath = document.getElementById('learningPath');
+
+            scoreCircle.innerText = `${score}/${totalSteps}`;
+
+            if (score >= 4) {
+                // Pass
+                scoreCircle.style.borderColor = "var(--accent-color)";
+                scoreCircle.style.color = "#fff";
+                resultTitle.innerText = "Excellent Work! 🎉";
+                resultMessage.innerText = "You have demonstrated strong foundational knowledge. Here is your personalized learning path to master advanced topics.";
+
+                // Show Learning Path
+                learningPath.classList.remove('hidden');
+
+                actionButtons.innerHTML = `<a href="hr-interview.html" class="btn-nav btn-next">Next Challenge: HR Round →</a>`;
+            } else {
+                // Fail
+                scoreCircle.classList.add('fail-color');
+                resultTitle.innerText = "Keep Practicing 💪";
+                resultMessage.innerText = "You're on the right track, but need a bit more practice to master the basics. Don't give up!";
+
+                // Hide Learning Path
+                learningPath.classList.add('hidden');
+
+                actionButtons.innerHTML = `
+                    <div style="display: flex; gap: 1rem; justify-content: center;">
+                        <button onclick="location.reload()" class="btn-nav btn-retry">Retry Assessment</button>
+                        <a href="hr-interview.html" class="btn-nav btn-next">Next Challenge: HR Round →</a>
+                    </div>
+                `;
+            }
+        }
+
+        // Initialize UI
+        updateUI();
+    </script>
+</body>
+
+</html>
